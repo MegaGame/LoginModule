@@ -66,23 +66,35 @@ namespace LoginModule_Test
         public void LoginModule_CreateUser_UsernameAvailable_Exception()
         {
             bool b = false;
-            int i = 0;
             LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
             LoginComponent.Login l = new LoginComponent.Login(fdm);
-            l.CreateUser("username4", "123456", "123456");
-            foreach (var u in FakeDatabase.user_table)
+            l.CreateUser("username5", "123456", "123456");
+            try
             {
-                if (u.username.Equals("username4"))
-                {
-                    i++;
-                }
+                l.CreateUser("username5", "123456", "123456");
             }
-            if (i < 2)
+            catch (Exception)
             {
+
                 b = true;
             }
             Assert.IsTrue(b);
-
+        }
+        [TestMethod]
+        public void LoginModule_CreateUser_UserStorged_Void()
+        {
+            bool b = false;
+            LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
+            LoginComponent.Login l = new LoginComponent.Login(fdm);
+            l.CreateUser("username6", "123456", "123456");
+            foreach (var x in FakeDatabase.user_table)
+            {
+                if (x.username.Equals("username6") && x.hashedPassword.Equals("sdgokjsdjkg"))
+                {
+                    b = true;
+                }
+            }
+            Assert.IsTrue(b);
         }
     }
 }

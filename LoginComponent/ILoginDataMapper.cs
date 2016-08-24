@@ -9,6 +9,7 @@ namespace LoginComponent
     public interface ILoginDataMapper
     {
         void Create(User u);
+        bool Read(string username);
         bool Read(string username, string hashedpassword);
     }
 }

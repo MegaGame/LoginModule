@@ -26,6 +26,7 @@ namespace LoginModule_Test
         }
         public bool Read(string username, string hashedpassword)
         {
+            //med rigtig database ville dette være linq2sql, med lambda
             foreach (User x in FakeDatabase.user_table)
                 {
                     if (x.username.Equals(username) && x.hashedPassword.Equals(hashedpassword))
