@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginModule_Consol", "LoginModule_Consol\LoginModule_Consol.csproj", "{1D741C58-763E-4F14-A9A1-35D157DB6880}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginComponent", "LoginComponent\LoginComponent.csproj", "{49137BD5-08BF-4843-A9E7-06D5D1D395CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginModule_Test", "LoginModule_Test\LoginModule_Test.csproj", "{CCF07C20-EE49-4B45-8603-490C44CCC616}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{1D741C58-763E-4F14-A9A1-35D157DB6880}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D741C58-763E-4F14-A9A1-35D157DB6880}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D741C58-763E-4F14-A9A1-35D157DB6880}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49137BD5-08BF-4843-A9E7-06D5D1D395CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49137BD5-08BF-4843-A9E7-06D5D1D395CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49137BD5-08BF-4843-A9E7-06D5D1D395CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49137BD5-08BF-4843-A9E7-06D5D1D395CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCF07C20-EE49-4B45-8603-490C44CCC616}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCF07C20-EE49-4B45-8603-490C44CCC616}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCF07C20-EE49-4B45-8603-490C44CCC616}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCF07C20-EE49-4B45-8603-490C44CCC616}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
