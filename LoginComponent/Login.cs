@@ -18,5 +18,13 @@ namespace LoginComponent
         {
             new CreateUser(username, password, confirmPassword, dm).Execute();
         }
+        public bool LoginUser(string username, string password)
+        {
+            bool b = false;
+            Helper.ChkPasswordlength(password);
+            string s = Helper.HashPassword(password);            
+            b = dm.Read(username, s);            
+            return b;
+        }
     }
 }

@@ -26,6 +26,6 @@ namespace LoginComponent
         public static string HashPassword(string password)
         {
             return "sdgokjsdjkg";
-        }         
+        }     
     }
 }

@@ -53,6 +53,7 @@
     <Compile Include="CreateUser_Test.cs" />
     <Compile Include="FakeDatabase.cs" />
     <Compile Include="FakeILoginDataMapper.cs" />
+    <Compile Include="LoginUser_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
