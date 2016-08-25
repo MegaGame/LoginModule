@@ -8,10 +8,20 @@ namespace LoginComponent
 {
     class LoginUser
     {
-        public bool LoginChk(string username, string password)
-        {
+        private string username, password;
+        private ILoginDataMapper dm;
 
-            return false;
+        //skulle return login token
+        public LoginUser(string username, string password, ILoginDataMapper dm)
+        {
+            this.username = username;
+            this.password = password;
+            this.dm = dm;
+        }
+        public bool Execute()
+        {
+            string HashPassword = Helper.HashPassword(password);
+            return dm.Read(username, HashPassword);
         }
     }
 }

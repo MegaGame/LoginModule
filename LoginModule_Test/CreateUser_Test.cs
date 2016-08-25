@@ -15,41 +15,32 @@ namespace LoginModule_Test
             Assert.IsTrue(true);
         }
         [TestMethod]
-        public void LoginModule_CreateUser_Shortpassword_Exception()
+        public void LoginModule_CreateUser_Shortpassword_int()
         {
             bool b = false;
-            try
+            LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
+            LoginComponent.Login l = new LoginComponent.Login(fdm);
+            
+            if (l.CreateUser("username2", "1234", "1234") == 3)
             {
-                LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
-                LoginComponent.Login l = new LoginComponent.Login(fdm);
-                l.CreateUser("username2", "1234", "1234");
-            }
-            catch (Exception)
-            {
-
                 b = true;
             }
             Assert.IsTrue(b);
         }
         [TestMethod]
-        public void LoginModule_CreateUser_PasswordNotMatch_Exception()
+        public void LoginModule_CreateUser_PasswordNotMatch_int()
         {
             bool b = false;
-            try
+            LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
+            LoginComponent.Login l = new LoginComponent.Login(fdm);            
+            if (l.CreateUser("username3", "123456", "654321") == 2)
             {
-                LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
-                LoginComponent.Login l = new LoginComponent.Login(fdm);
-                l.CreateUser("username3", "123456", "654321");
-            }
-            catch (Exception)
-            {
-
                 b = true;
-            }
+            }           
             Assert.IsTrue(b);
         }
         [TestMethod]
-        public void LoginModule_CreateUser_PasswordNotHashed_Exception()
+        public void LoginModule_CreateUser_PasswordNotHashed_bool()
         {
             bool b = false;
             LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
@@ -63,21 +54,16 @@ namespace LoginModule_Test
             Assert.IsTrue(b);
         }
         [TestMethod]
-        public void LoginModule_CreateUser_UsernameAvailable_Exception()
+        public void LoginModule_CreateUser_UsernameAvailable_int()
         {
             bool b = false;
             LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
             LoginComponent.Login l = new LoginComponent.Login(fdm);
             l.CreateUser("username5", "123456", "123456");
-            try
+            if (l.CreateUser("username5", "123456", "123456") == 1)
             {
-                l.CreateUser("username5", "123456", "123456");
-            }
-            catch (Exception)
-            {
-
                 b = true;
-            }
+            }            
             Assert.IsTrue(b);
         }
         [TestMethod]
@@ -87,14 +73,25 @@ namespace LoginModule_Test
             LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
             LoginComponent.Login l = new LoginComponent.Login(fdm);
             l.CreateUser("username6", "123456", "123456");
+            string hashedpassword = LoginComponent.Helper.HashPassword("123456");
             foreach (var x in FakeDatabase.user_table)
             {
-                if (x.username.Equals("username6") && x.hashedPassword.Equals("sdgokjsdjkg"))
+                if (x.username.Equals("username6") && x.hashedPassword.Equals(hashedpassword))
                 {
                     b = true;
                 }
             }
             Assert.IsTrue(b);
+        }
+        [TestMethod]
+        public void LoginModule_CreateUser_UsernameRules_int()
+        {
+            //bool b = false;
+            LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
+            LoginComponent.Login l = new LoginComponent.Login(fdm);
+            l.CreateUser("username7", "123456", "123456");
+            //relger for username skal laves for test kan få error number 4
+            Assert.IsTrue(true);
         }
     }
 }

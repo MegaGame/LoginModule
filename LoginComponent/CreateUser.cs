@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoginComponent
 {
-    class CreateUser : ICommand
+    class CreateUser
     {
         private ILoginDataMapper dm;
         private string username, password, confirmPassword;
@@ -17,20 +17,29 @@ namespace LoginComponent
             this.confirmPassword = confirmPassword;
             this.dm = dm;          
         }
-        public void Execute()
+        public int Execute()
         {
+            if (!Helper.ChkUsername(username))
+            {
+                return 4;
+            }
             if (dm.Read(username))
             {
-                throw new Exception("Username is already in use");
+                return 1;
             }
-            Helper.ChkPasswordlength(password);
+            if (!Helper.ChkPasswordlength(password))
+            {
+                return 3;
+            }
             if (!password.Equals(confirmPassword))
             {
-                throw new Exception("Passwords do not match");
+                return 2;
             }
             User u = new User(username, Helper.HashPassword(password));
             dm.Create(u);
-                                  
+            return 0;
+
+
         }
     }
 }

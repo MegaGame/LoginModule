@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LoginComponent
 {
-    public interface ICommand
+    public interface ILoginDataMapper
     {
-        void Execute();
+        void Create(User u);
+        bool Read(string username);
     }
 }

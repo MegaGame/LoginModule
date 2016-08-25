@@ -16,7 +16,7 @@ namespace LoginModule_Test
         }
         public static string GetHashedPassword(string username)
         {
-            string s = "";
+            string s = null;
             foreach (LoginComponent.User u in user_table)
             {
                 if (u.username.Equals(username))

@@ -12,27 +12,20 @@ namespace LoginModule_Test
         public void Create(User u)
         {
             FakeDatabase.SaveUser(u);
-        }
+        }        
         public bool Read(string username)
-        {
+        {                        
             foreach (User x in FakeDatabase.user_table)
+            {
+                if (x.username.Equals(username))
                 {
-                    if (x.username.Equals(username))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
+            }            
             return false;
         }
-        public bool Read(string username, string hashedpassword)
+        public bool Read(string username, string hashedPassword)
         {
-            foreach (User x in FakeDatabase.user_table)
-                {
-                    if (x.username.Equals(username) && x.hashedPassword.Equals(hashedpassword))
-                    {
-                    return true;
-                    }
-                }
             return false;
         }
     }

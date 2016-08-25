@@ -14,17 +14,20 @@ namespace LoginComponent
         {
             this.dm = dm;
         }
-        public void CreateUser(string username, string password, string confirmPassword)
+        public int CreateUser(string username, string password, string confirmPassword)
         {
-            new CreateUser(username, password, confirmPassword, dm).Execute();
-        }
-        public bool LoginUser(string username, string password)
+            return new CreateUser(username, password, confirmPassword, dm).Execute();
+            //return message
+            //0 = user lavet
+            //1 = username er alderede taget
+            //2 = Password er ikke ens
+            //3 = password opfylder ikke kræverne
+            //4 = username overholder ikke reglerne for usernames
+        }        
+        public bool LoginUser(string username, string password)//skulle give en access token istedet.
         {
-            bool b = false;
-            Helper.ChkPasswordlength(password);
-            string s = Helper.HashPassword(password);            
-            b = dm.Read(username, s);            
-            return b;
+            
+            return new LoginUser(username, password, dm).Execute();
         }
     }
 }
