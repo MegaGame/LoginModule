@@ -17,7 +17,7 @@ namespace LoginModule_Test
             Assert.IsTrue(b);
         }
         [TestMethod]
-        public void LoginModule_LoginUser_loginFail_bool() //vill ikke pass før rigtig hashning af password er lavet
+        public void LoginModule_LoginUser_loginFail_bool()
         {
             bool b = false;
             LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
