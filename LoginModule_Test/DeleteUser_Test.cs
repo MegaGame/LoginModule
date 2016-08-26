@@ -17,15 +17,16 @@ namespace LoginModule_Test
             LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
             LoginComponent.Login l = new LoginComponent.Login(fdm);
             l.CreateUser("username10", "123456", "123456");
-            bool b = true;
+            bool b = false;
             string hashedpassword = FakeHelper.HashPassword("123456");
-            foreach (var x in FakeDatabase.user_table)
-            {
-                if (x.username.Equals("username10") && x.hashedPassword.Equals(hashedpassword))
-                {
-                    b = false;
-                }
-            }          
+            b = l.DeleteUser("username10", hashedpassword);
+            //foreach (var x in FakeDatabase.user_table)
+            //{
+            //    if (x.username.Equals("username10") && x.hashedPassword.Equals(hashedpassword))
+            //    {
+            //        b = false;
+            //    }
+            //}          
             Assert.IsTrue(b);
         }
     }
