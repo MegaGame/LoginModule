@@ -5,28 +5,18 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LoginModule_Test
 {
-    /// <summary>
-    /// Summary description for DeleteUser_Test
-    /// </summary>
     [TestClass]
     public class DeleteUser_Test
     {
         [TestMethod]
-        public void LoginModule_DeleteUser_DeleteUser_void()
+        public void LoginModule_DeleteUser_DeleteUser_bool()
         {
             LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
             LoginComponent.Login l = new LoginComponent.Login(fdm);
             l.CreateUser("username10", "123456", "123456");
-            bool b = false;
+            bool b;
             string hashedpassword = FakeHelper.HashPassword("123456");
             b = l.DeleteUser("username10", hashedpassword);
-            //foreach (var x in FakeDatabase.user_table)
-            //{
-            //    if (x.username.Equals("username10") && x.hashedPassword.Equals(hashedpassword))
-            //    {
-            //        b = false;
-            //    }
-            //}          
             Assert.IsTrue(b);
         }
     }

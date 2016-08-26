@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LoginModule_Consol
 {
-    class Program
+    class View
     {
         static void Main(string[] args)
         {
