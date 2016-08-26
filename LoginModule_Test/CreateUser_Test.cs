@@ -73,7 +73,7 @@ namespace LoginModule_Test
             LoginComponent.ILoginDataMapper fdm = new FakeILoginDataMapper();
             LoginComponent.Login l = new LoginComponent.Login(fdm);
             l.CreateUser("username6", "123456", "123456");
-            string hashedpassword = LoginComponent.Helper.HashPassword("123456");
+            string hashedpassword = FakeHelper.HashPassword("123456");
             foreach (var x in FakeDatabase.user_table)
             {
                 if (x.username.Equals("username6") && x.hashedPassword.Equals(hashedpassword))

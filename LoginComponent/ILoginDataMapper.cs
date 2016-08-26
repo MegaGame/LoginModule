@@ -11,5 +11,6 @@ namespace LoginComponent
         void Create(User u);
         bool Read(string username);
         bool Read(string username, string hashedpassword);
+        bool Delete(string username, string hashedpassword);
     }
 }

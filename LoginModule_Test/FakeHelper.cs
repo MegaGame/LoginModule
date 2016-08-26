@@ -1,32 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
-namespace LoginComponent
+namespace LoginModule_Test
 {
-    static class Helper
+    class FakeHelper
     {
-        public static bool ChkUsername(string username)
-        {
-            //skulle teste om regler for username bliver overholdt
-            return true;
-        }
-        public static bool  ChkPasswordlength(string password)
-        {
-            if (password == null)
-            {
-                return false;
-            }
-            else if (password.Length < 6)
-            {
-                return false;
-            }
-            return true;
-        }
-        //skal hashed password
         public static string HashPassword(string password)
         {
             MD5 md5 = new MD5CryptoServiceProvider();
@@ -45,6 +27,6 @@ namespace LoginComponent
                 strBuilder.Append(result[i].ToString("x2"));
             }
             return strBuilder.ToString();
-        }     
+        }
     }
 }

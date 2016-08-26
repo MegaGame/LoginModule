@@ -35,5 +35,10 @@ namespace LoginModule_Test
                 }
             return false;
         }
+        public bool Delete(string username, string hashedpassword)
+        {
+            User user = FakeDatabase.user_table.SingleOrDefault(x => x.username.Equals(username) && x.hashedPassword.Equals(hashedpassword));
+            return FakeDatabase.user_table.Remove(user);
+        }
     }
 }

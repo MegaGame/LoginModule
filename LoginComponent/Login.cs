@@ -29,5 +29,9 @@ namespace LoginComponent
             
             return new LoginUser(username, password, dm).Execute();
         }
+        public bool DeleteUser(string username, string password)
+        {
+            return new DeleteUser(username, password, dm).Execute();
+        }
     }
 }

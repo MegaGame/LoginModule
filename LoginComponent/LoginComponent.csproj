@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CreateUser.cs" />
+    <Compile Include="DeleteUser.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="ILoginDataMapper.cs" />
     <Compile Include="Login.cs" />
