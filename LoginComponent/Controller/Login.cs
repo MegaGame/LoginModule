@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LoginComponent.TechnicalService;
+using LoginComponent.Model;
 
-namespace LoginComponent
+namespace LoginComponent.Controller
 {
      public class Login
     {
@@ -32,6 +34,10 @@ namespace LoginComponent
         public bool DeleteUser(string username, string password)
         {
             return new DeleteUser(username, password, dm).Execute();
+        }
+        public bool UpdateUser(string username, string password, string newPassword, string newConfirmPassword)
+        {
+            return new UpdateUser(username, password, newPassword, newConfirmPassword, dm).Execute();
         }
     }
 }

@@ -1,22 +1,18 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LoginModule_Test
 {
     [TestClass]
-    public class DeleteUser_Test
+    public class UpdateUser_Test
     {
         [TestMethod]
-        public void LoginModule_DeleteUser_DeleteUser_bool()
+        public void LoginModule_UpdateUser_ChangePassword_Bool()
         {
             LoginComponent.TechnicalService.ILoginDataMapper fdm = new FakeILoginDataMapper();
             LoginComponent.Controller.Login l = new LoginComponent.Controller.Login(fdm);
-            l.CreateUser("username10", "123456", "123456");
-            bool b;
-            string hashedpassword = FakeHelper.HashPassword("123456");
-            b = l.DeleteUser("username10", hashedpassword);
+            l.CreateUser("username11", "password", "password");
+            bool b = l.UpdateUser("username11", "password", "123456", "123456");
             Assert.IsTrue(b);
         }
     }

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LoginComponent;
+using LoginComponent.TechnicalService;
+using LoginComponent.Model;
 
 namespace LoginModule_Test
 {
@@ -40,6 +42,10 @@ namespace LoginModule_Test
             return true;
             //User user = FakeDatabase.user_table.SingleOrDefault(x => x.username.Equals(username) && x.hashedPassword.Equals(hashedpassword));
             //return FakeDatabase.user_table.Remove(user);
+        }
+        public bool Update(string username, string hashedpassword, User u)
+        {
+            return true;
         }
     }
 }

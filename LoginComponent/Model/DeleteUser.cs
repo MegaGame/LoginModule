@@ -1,4 +1,6 @@
-﻿namespace LoginComponent
+﻿using LoginComponent.TechnicalService;
+
+namespace LoginComponent.Model    
 {
     internal class DeleteUser
     {

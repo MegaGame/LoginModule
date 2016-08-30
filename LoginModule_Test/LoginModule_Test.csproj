@@ -59,7 +59,7 @@
     <Compile Include="FakeILoginDataMapper.cs" />
     <Compile Include="LoginUser_Test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="UpdateUser_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LoginComponent\LoginComponent.csproj">

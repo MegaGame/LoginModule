@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LoginComponent
+namespace LoginComponent.Model
 {
     static class Helper
     {
@@ -25,8 +25,7 @@ namespace LoginComponent
                 return false;
             }
             return true;
-        }
-        //skal hashed password
+        }        
         public static string HashPassword(string password)
         {
             MD5 md5 = new MD5CryptoServiceProvider();
